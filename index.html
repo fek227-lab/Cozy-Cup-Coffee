@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- TODO: rename to your shop -->
+  <title>Crumbs &amp; Co. | Cozy Cup Coffee</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- ITE 270 · Module 5 · Bakery Motion Lab starter
+       The layout and content are done. Your job is the MOTION.
+       Work through STEP 0 to STEP 10 in the lesson. Each step has a matching
+       "STEP" comment in styles.css or script.js. Press M to open the Motion X-ray. -->
+
+  <nav class="nav" aria-label="Main">
+    <div class="wrap">
+      <a class="logo" href="#top">🤎Cozy Cup Coffee🤎</a>
+      <ul>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#visit">Visit Us</a></li>
+      </ul>
+      <!-- STEP 9: this button pauses every looping animation -->
+      <button class="pill" id="pauseBtn" type="button" aria-pressed="false">Pause motion</button>
+      <button class="cart" id="cart" type="button" aria-label="Your order">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8h18v12H3zM3 8l3-4h12l3 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+        <span class="count" id="count" hidden>0</span>
+      </button>
+    </div>
+  </nav>
+
+  <main id="top">
+    <!-- ===== HERO ===== -->
+    <header class="hero">
+      <div class="wrap">
+        <p class="eyebrow">Cozy Cup Coffee · Fresh from 7 a.m.</p>
+        <!-- STEP 3: each word is a .w with its own --i number for the stagger -->
+        <h1>
+  <span class="w" style="--i:0">Warm.</span>
+  <span class="w" style="--i:1">Cozy.</span>
+  <span class="w" style="--i:2">Coffee</span>
+  <span class="w accent" style="--i:3">daily.</span>
+</h1>
+        <p class="lede">Enjoy freshly brewed coffee, delicious lattes, and sweet treats in a warm and welcoming place where every cup brings a little happiness.</p>
+        <div class="ctas">
+          <a class="btn" href="#menu">See the menu</a>
+          <a class="link" href="#story">Our coffee story<span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+
+      <!-- STEP 4: animate at least two parts of this illustration.
+           Ready-made hooks: .steam (3 puffs), .awning, .sign, .mascot.
+           Add your own shapes and classes too. -->
+      <svg class="shop" viewBox="0 0 600 380" role="group" aria-labelledby="shopTitle">
+        <title id="shopTitle">The Cozy Cup Coffee storefront</title>
+        <defs>
+          <pattern id="stripes" width="60" height="10" patternUnits="userSpaceOnUse">
+            <rect width="30" height="10" fill="#8b5e3c"/> <rect x="30" width="30" height="10" fill="#fff8ef"/>
+          </pattern>
+        </defs>
+        <rect x="410" y="20" width="40" height="70" fill="#8b5e3c"/>
+        <g class="steam" fill="#ffffff">
+          <circle class="puff" cx="430" cy="12" r="11" style="--d:0s"/>
+          <circle class="puff" cx="430" cy="12" r="11" style="--d:1s"/>
+          <circle class="puff" cx="430" cy="12" r="11" style="--d:2s"/>
+        </g>
+        <rect x="70" y="80" width="460" height="280" rx="16" fill="#f2dfc5"/>
+        <rect x="56" y="70" width="488" height="24" rx="10" fill="#8b5e3c"/>
+        <g class="sign">
+  <rect x="180" y="104" width="240" height="54" rx="27" fill="#fff8ef"/>
+  <text x="300" y="139" text-anchor="middle"
+        font-family="Georgia, serif"
+        font-weight="700"
+        font-size="21"
+        fill="#8b5e3c">Cozy Cup Coffee</text>
+</g>
+        <g class="awning">
+          <rect x="90" y="172" width="420" height="40" fill="url(#stripes)"/>
+          <path fill="url(#stripes)" d="M90 210a15 15 0 0 0 30 0a15 15 0 0 0 30 0a15 15 0 0 0 30 0a15 15 0 0 0 30 0a15 15 0 0 0 30 0a15 15 0 0 0 30 0a15 15 0 0 0 30 0a15 15 0 0 0 30 0a15 15 0 0 0 30 0a15 15 0 0 0 30 0a15 15 0 0 0 30 0a15 15 0 0 0 30 0a15 15 0 0 0 30 0a15 15 0 0 0 30 0Z"/>
+        </g>
+        <rect x="100" y="240" width="160" height="100" rx="10" fill="#fff8ef" stroke="#9c4a3a" stroke-width="5"/>
+        <!-- The door is a real link: it opens on hover AND on keyboard focus -->
+        <a class="door-link" href="#menu" aria-label="Step inside: see the menu">
+          <rect class="door-frame" x="270" y="236" width="80" height="124" rx="8" fill="#5a3420" stroke="#9c4a3a" stroke-width="5"/>
+          <g class="door">
+            <rect x="270" y="236" width="80" height="124" rx="8" fill="#e4572e" stroke="#9c4a3a" stroke-width="5"/>
+            <circle cx="336" cy="300" r="5" fill="#ffd9a8"/>
+          </g>
+        </a>
+        <rect x="370" y="240" width="140" height="100" rx="10" fill="#fff8ef" stroke="#9c4a3a" stroke-width="5"/>
+        <!-- A cup of tea in the second window, with steam curling up from it -->
+        <g class="teacup">
+          <ellipse cx="440" cy="330" rx="30" ry="4.5" fill="#e9d6bd" stroke="#9c4a3a" stroke-width="2"/>
+          <path d="M460 304a8 8 0 0 1 0 14" fill="none" stroke="#9c4a3a" stroke-width="4" stroke-linecap="round"/>
+          <path d="M420 300H460V308A20 20 0 0 1 420 308Z" fill="#ffffff" stroke="#9c4a3a" stroke-width="2.5" stroke-linejoin="round"/>
+          <ellipse cx="440" cy="301" rx="18" ry="2.5" fill="#a0602f"/>
+        </g>
+        <g class="tea-steam" fill="none" stroke="#cdb59b" stroke-width="3" stroke-linecap="round">
+          <path d="M432 294q-6 -8 0 -16q6 -8 0 -16" style="--d:0s"/>
+          <path d="M440 294q6 -8 0 -16q-6 -8 0 -16" style="--d:.8s"/>
+          <path d="M448 294q-6 -8 0 -16q6 -8 0 -16" style="--d:1.6s"/>
+        </g>
+        <!-- The mascot: a little bun with a face. Make it bounce, blink or wave. -->
+        <g class="mascot">
+          <ellipse cx="180" cy="312" rx="38" ry="24" fill="#d9903f"/>
+          <ellipse cx="180" cy="304" rx="30" ry="14" fill="#e8a95a"/>
+          <circle class="eye" cx="168" cy="310" r="3.5" fill="#3a2410"/>
+          <circle class="eye" cx="192" cy="310" r="3.5" fill="#3a2410"/>
+          <path d="M172 320q8 7 16 0" fill="none" stroke="#3a2410" stroke-width="2.5" stroke-linecap="round"/>
+        </g>
+        <rect x="0" y="358" width="600" height="22" fill="#e9d6bd"/>
+      </svg>
+    </header>
+
+    <!-- ===== MENU ===== -->
+    
+<section class="band" id="menu" aria-labelledby="menuTitle">
+  <div class="wrap">
+    <h2 id="menuTitle">Our Coffee Menu</h2>
+    <p class="lede">Freshly brewed coffee and delicious treats, made with love.</p>
+
+    <!-- STEP 13: filter chips. JS hides cards that don't match, inside a View Transition -->
+    <div class="filters" role="group" aria-label="Filter coffee menu">
+      <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
+      <button class="chip" type="button" data-filter="coffee" aria-pressed="false">Coffee</button>
+      <button class="chip" type="button" data-filter="cold" aria-pressed="false">Cold Drinks</button>
+      <button class="chip" type="button" data-filter="treats" aria-pressed="false">Sweet Treats</button>
+    </div>
+
+    <!-- STEP 2: Cards lift on hover and focus.
+         STEP 5: Cards reveal on scroll (.reveal + --i). -->
+
+    <div class="grid">
+
+      <!-- Item 1 -->
+      <article class="card reveal" style="--i:0;view-transition-name:cappuccino" data-name="Hot Cappuccino" data-tags="coffee">
+        <div class="art" aria-hidden="true">☕</div>
+        <h3>Hot Cappuccino</h3>
+        <p>Rich espresso topped with creamy steamed milk.</p>
+        <div class="row">
+          <span class="price">$4.50</span>
+          <button class="btn small add" type="button">Add to order</button>
+        </div>
+      </article>
+
+      <!-- Item 2 -->
+      <article class="card reveal" style="--i:1;view-transition-name:latte" data-name="Vanilla Latte" data-tags="coffee">
+        <div class="art" aria-hidden="true">🥛</div>
+        <h3>Vanilla Latte</h3>
+        <p>Smooth espresso with milk and sweet vanilla.</p>
+        <div class="row">
+          <span class="price">$5.00</span>
+          <button class="btn small add" type="button">Add to order</button>
+        </div>
+      </article>
+
+      <!-- Item 3 -->
+      <article class="card reveal" style="--i:2;view-transition-name:iced" data-name="Iced Coffee" data-tags="cold">
+        <div class="art" aria-hidden="true">🧋</div>
+        <h3>Iced Coffee</h3>
+        <p>Refreshing chilled coffee served over ice.</p>
+        <div class="row">
+          <span class="price">$4.25</span>
+          <button class="btn small add" type="button">Add to order</button>
+        </div>
+      </article>
+
+      <!-- Item 4 -->
+      <article class="card reveal" style="--i:0;view-transition-name:macchiato" data-name="Caramel Macchiato" data-tags="coffee">
+        <div class="art" aria-hidden="true">🍯</div>
+        <h3>Caramel Macchiato</h3>
+        <p>Espresso, creamy milk, and caramel flavor.</p>
+        <div class="row">
+          <span class="price">$5.25</span>
+          <button class="btn small add" type="button">Add to order</button>
+        </div>
+      </article>
+
+      <!-- Item 5 -->
+      <article class="card reveal" style="--i:1;view-transition-name:muffin" data-name="Blueberry Muffin" data-tags="treats">
+        <div class="art" aria-hidden="true">🧁</div>
+        <h3>Blueberry Muffin</h3>
+        <p>Soft, freshly baked muffin filled with blueberries.</p>
+        <div class="row">
+          <span class="price">$3.50</span>
+          <button class="btn small add" type="button">Add to order</button>
+        </div>
+      </article>
+
+      <!-- Item 6 -->
+      <article class="card reveal" style="--i:2;view-transition-name:cookie" data-name="Chocolate Cookie" data-tags="treats">
+        <div class="art" aria-hidden="true">🍪</div>
+        <h3>Chocolate Cookie</h3>
+        <p>A sweet chocolate treat to enjoy with your coffee.</p>
+        <div class="row">
+          <span class="price">$2.75</span>
+          <button class="btn small add" type="button">Add to order</button>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+    <!-- ===== STEP 6: SCROLL STORY. Choose OPTION A or OPTION B and delete the other. ===== -->
+
+    <!-- OPTION A: pinned picture + steps. An IntersectionObserver sets data-step on #stage. -->
+    <section class="band tint" id="story" aria-labelledby="storyTitle">
+      <div class="wrap">
+        <h2 id="storyTitle" class="scroll-reveal">How we make it</h2>
+        <div class="story">
+          <!-- The first step is set in the HTML, so the first photo shows even without JavaScript -->
+          <div class="stage" id="stage" data-step="grind" aria-hidden="true">
+            <img class="shot" data-shot="grind" src="images/image1.jpg" alt="">
+            <img class="shot" data-shot="extract" src="images/image2.jpg" alt="">
+            <img class="shot" data-shot="enjoy" src="images/image3.jpg" alt="">
+            <!-- Moving steam over the cup photo. Same 550x550 grid as image3, so it lines up exactly.
+                 The white rect hides the painted (still) steam; the paths are the animated steam. -->
+            <svg class="shot" data-shot="enjoy" viewBox="0 0 550 550">
+              <rect x="215" y="78" width="105" height="197" fill="#ffffff"/>
+              <g class="rising-steam" fill="none" stroke="#e8cfa8" stroke-width="10" stroke-linecap="round">
+                <path d="M268 270C240 232 300 205 270 165S258 115 280 95" style="--d:0s"/>
+                <path d="M286 270C312 236 256 212 290 172S302 128 286 108" style="--d:1s"/>
+                <path d="M276 270C254 242 302 222 276 188S264 152 278 132" style="--d:2s"/>
+              </g>
+            </svg>
+            <p class="stage-label" id="stageLabel">Grind the Beans</p>
+          </div>
+          <div class="steps">
+            <article class="step" data-step="grind">
+              <h3 class="scroll-reveal">1. Grind the Beans</h3>
+              <p class="scroll-reveal">We grind fresh coffee beans to release their rich aroma and prepare them for brewing.</p>
+            </article>
+            <article class="step" data-step="extract">
+              <h3 class="scroll-reveal">2. Extract the Coffee</h3>
+              <p class="scroll-reveal">Hot water passes through the ground coffee to extract its rich flavor and create a smooth espresso.</p>
+            </article>
+            <article class="step" data-step="enjoy">
+              <h3 class="scroll-reveal">3. Ready to Enjoy</h3>
+              <p class="scroll-reveal">We serve your freshly brewed coffee with creamy milk foam and a little love. Your Cozy Cup is ready!</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   
+    <!-- ===== 3D FLIP CARDS: hover, focus (Tab) or tap a card to flip it =====
+         tabindex="0" lets keyboard users Tab to each card; focusing it flips it. -->
+    <section class="band" id="flip" aria-labelledby="flipTitle">
+      <div class="wrap">
+        <h2 id="flipTitle">Behind every cup</h2>
+        <div class="flip-grid">
+
+          <div class="flip-card" tabindex="0">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <span aria-hidden="true">☕</span>
+                <h3>Step 1</h3>
+                <p>Grind the Beans</p>
+              </div>
+              <div class="flip-back">
+                <h3>Freshly Ground</h3>
+                <p>We grind fresh coffee beans to bring out their rich aroma and flavor.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card" tabindex="0">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <span aria-hidden="true">💧</span>
+                <h3>Step 2</h3>
+                <p>Extract the Coffee</p>
+              </div>
+              <div class="flip-back">
+                <h3>Smooth Espresso</h3>
+                <p>Hot water passes through the ground coffee to pull out its rich, smooth flavor.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card" tabindex="0">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <span aria-hidden="true">❤️</span>
+                <h3>Step 3</h3>
+                <p>Ready to Enjoy</p>
+              </div>
+              <div class="flip-back">
+                <h3>Your Cozy Cup</h3>
+                <p>Topped with creamy milk foam and a little love. Your coffee is ready!</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SVG LINE DRAWING: the cup draws itself as you scroll =====
+         Every path has pathLength="1", so CSS can treat each line as length 1.
+         --s is when that line starts drawing (0 to 1 of the scroll), --k how fast it draws. -->
+    <section class="band sketch" id="sketch" aria-labelledby="sketchTitle">
+      <div class="wrap">
+        <h2 id="sketchTitle">Drawn with care</h2>
+        <p class="lede">Every cup starts as a simple idea: good beans, warm hands and a little love.</p>
+        <svg class="sketch-art" viewBox="0 0 400 300" role="img" aria-label="A line drawing of a coffee cup on a saucer, with a heart on the cup and steam rising">
+          <path pathLength="1" style="--s:0;--k:2.86"   d="M110 140L290 140L280 220Q275 245 240 245L160 245Q125 245 120 220Z"/>   <!-- cup -->
+          <path pathLength="1" style="--s:.30;--k:6.67" d="M287 160C330 155 335 215 281 210"/>                                    <!-- handle -->
+          <path pathLength="1" style="--s:.35;--k:5"    d="M70 252Q200 285 330 252"/>                                            <!-- saucer -->
+          <path pathLength="1" style="--s:.50;--k:6.67" d="M118 156Q200 172 282 156"/>                                           <!-- coffee -->
+          <path pathLength="1" style="--s:.60;--k:5" class="heart"
+                d="M200 222C176 204 168 184 186 180C195 178 200 186 200 190C200 186 205 178 214 180C232 184 224 204 200 222Z"/>  <!-- heart -->
+          <path pathLength="1" style="--s:.75;--k:5"    d="M165 122C150 100 180 86 165 62"/>                                     <!-- steam -->
+          <path pathLength="1" style="--s:.80;--k:5"    d="M200 126C185 100 215 84 200 50"/>
+          <path pathLength="1" style="--s:.78;--k:5"    d="M235 122C220 100 250 86 235 62"/>
+        </svg>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+  <div class="wrap">
+    <p>Cozy Cup Coffee is a class project for ITE 270. By: Fatima Khalid</p>
+  </div>
+</footer>
+  <!-- STEP 7: announce what happened, for screen readers and everyone else -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+  <!-- Motion X-ray: press M. Remove this line before you publish if you like. -->
+  <script src="motion-xray.js"></script>
+</body>
+</html>
